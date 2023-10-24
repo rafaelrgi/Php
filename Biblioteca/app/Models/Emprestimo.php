@@ -42,7 +42,7 @@ class Emprestimo extends BaseModel
     return self::simplePaginate(config('app.results-per-page'));
   }
 
-  public static function persist(object $row): int|null
+  public static function persist(object $row): ?int
   {
     DB::beginTransaction();
     try {

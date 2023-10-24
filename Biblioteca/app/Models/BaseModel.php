@@ -22,7 +22,7 @@ class BaseModel extends Model
     return $obj;
   }
 
-  public static function persist(object $row): int|null
+  public static function persist(object $row): ?int
   {
     $model = self::getModel();
 
@@ -61,7 +61,7 @@ class BaseModel extends Model
   }
 
   /** @param string|int|null $dt Timestamp ou string no format dd/mm/aaaa */
-  protected static function dbDate(string|int|null $dt): \DateTime|null
+  protected static function dbDate(string|int|null $dt): ?\DateTime
   {
     if (!$dt) return null;
 

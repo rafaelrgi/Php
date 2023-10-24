@@ -4,7 +4,7 @@ namespace App\Lib;
 
 class Lib
 {
-  public static function numericOnly(string|null $s): string|null
+  public static function numericOnly(?string $s): ?string
   {
     if ($s === null)
       return null;

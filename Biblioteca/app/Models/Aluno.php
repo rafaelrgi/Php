@@ -34,7 +34,7 @@ class Aluno extends BaseModel
     return $this->hasMany(Reserva::class);
   }
 
-  public static function pesquisar(int $matricula): object|null
+  public static function pesquisar(int $matricula): ?object
   {
     if (!$matricula)
       return null;
@@ -43,7 +43,7 @@ class Aluno extends BaseModel
     return $row;
   }
 
-  public static function listar(string|null $matricula = null, string|null $cpf = null, string|null $nome = null, string|null $email = null, string|null $fone = null): \Illuminate\Contracts\Pagination\Paginator
+  public static function listar(?string $matricula = null, ?string $cpf = null, ?string $nome = null, ?string $email = null, ?string $fone = null): \Illuminate\Contracts\Pagination\Paginator
   {
     $qry = self
       ::with('user');
@@ -64,7 +64,7 @@ class Aluno extends BaseModel
       ->simplePaginate(config('app.results-per-page'));
   }
 
-  public static function persist(object $row): int|null
+  public static function persist(object $row): ?int
   {
     $row->nome = ucwords($row->nome);
 

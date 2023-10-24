@@ -8,16 +8,8 @@
         <div class="card-header">{{ __('Livros') }}</div>
 
         <div class="card-body">
-          @if (! count($rows))
-          <div class="text-center">
-            <br>
-            <h3>Nenhum registro encontrado!</h3>
-            <br>
-          </div>
-          @endif
-
           <div class="table-responsive">
-            <table class="table table-hover table-bordered {{ count($rows)? '' : 'd-none' }}">
+            <table class="table table-hover table-bordered">
               <thead>
                 <form action="/livros" method="GET">
                   <tr class="border-0">
@@ -111,6 +103,14 @@
                 @endforeach
               </tbody>
             </table>
+
+            @if (! count($rows))
+            <div id="no-record" class="text-center">
+              <br>
+              <h3>Nenhum registro encontrado!</h3>
+              <br>
+            </div>
+            @endif
           </div>
 
           <div class="text-center">

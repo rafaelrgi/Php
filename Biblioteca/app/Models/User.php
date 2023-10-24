@@ -24,7 +24,7 @@ class User extends Authenticatable
     return $obj;
   }
 
-  public static function listar(string|null $order = null): \Illuminate\Contracts\Pagination\Paginator
+  public static function listar(?string $order = null): \Illuminate\Contracts\Pagination\Paginator
   {
     return self
       ::withTrashed()
@@ -66,7 +66,7 @@ class User extends Authenticatable
     $row->restore();
   }
 
-  public static function persist(object $row): int|null
+  public static function persist(object $row): ?int
   {
     //cadastrando Aluno pelo cadastro de Usuários
     if (!$row->id && !$row->is_admin)

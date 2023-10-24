@@ -16,7 +16,7 @@ class Cep extends BaseModel
     return $this->hasMany(Pessoas::class);
   }
 
-  public static function findOrSave(object $row): int|null
+  public static function findOrSave(object $row): ?int
   {
     if (!$row->cep)
       return null;

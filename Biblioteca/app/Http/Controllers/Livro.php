@@ -19,10 +19,9 @@ class Livro extends Controller
     $titulo = $request->input('titulo');
     $autor = $request->input('autor');
     $editora = $request->input('editora');
-    $situacao = $request->input('situacao');
     $order = $request->input('order');
 
-    $rows = Model::listar($titulo, $autor, $editora, $situacao, $order);
+    $rows = Model::listar($titulo, $autor, $editora, $order);
     $this->saveUrl();
     return view('livro-lst', [
       'rows' => $rows,

@@ -1,5 +1,7 @@
 $(document).ready(function () {
-  debugger
+  if ($("div#no-record").length)
+    return;
+
   const order = (new URLSearchParams(window.location.search)).get("order");
 
   if (order) {

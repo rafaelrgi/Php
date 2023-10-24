@@ -24,7 +24,7 @@ class Livro extends BaseModel
     return Reserva::aplicarFiltrosData($this->hasMany(Reserva::class));
   }
 
-  public static function listar(string|null $titulo = '', string|null $autor = '', string|null $editora = '', string|null $situacao = '', string|null $order = ''): \Illuminate\Contracts\Pagination\Paginator
+  public static function listar(?string $titulo = '', ?string $autor = '', ?string $editora = '', ?string $order = ''): \Illuminate\Contracts\Pagination\Paginator
   {
     $qry = self::with(['reservas.aluno.user', 'emprestimos']);
 

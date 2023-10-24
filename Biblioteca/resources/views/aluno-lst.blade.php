@@ -8,14 +8,6 @@
         <div class="card-header">{{ __('Alunos') }}</div>
 
         <div class="card-body">
-          @if (! count($rows))
-          <div class="text-center">
-            <br>
-            <h3>Nenhum registro encontrado!</h3>
-            <br>
-          </div>
-          @endif
-
           <div class="table-responsive">
             <table class="table table-hover table-bordered {{ count($rows)? '' : 'd-none' }}">
               <thead>
@@ -69,6 +61,14 @@
                 @endforeach
               </tbody>
             </table>
+
+            @if (! count($rows))
+            <div id="no-record" class="text-center">
+              <br>
+              <h3>Nenhum registro encontrado!</h3>
+              <br>
+            </div>
+            @endif
           </div>
 
           <div class="text-center">
